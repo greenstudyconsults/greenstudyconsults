@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Study Consults - Your Gateway to Global Education & Travel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        body {
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .card-hover {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(0, -20px, 0); }
+        }
+        
+        .pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        nav {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(52, 211, 153, 0.1) 0%, transparent 50%);
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -webkit-font-smoothing: antialiased;
+            contain: layout style paint;
+        }
+        
+        section {
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+        }
+        
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+        }
+        
+        .floating {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+        
+        a, button, input[type="submit"], select {
+            cursor: pointer;
+        }
+        
+        .country-flag {
+            font-size: 3rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+        }
+        
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%);
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step::after {
+            display: none;
+        }
+        
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            display: block;
+            visibility: visible;
+        }
+        
+        #heroImageBg {
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-pattern {
+                min-height: auto;
+            }
+            
+            .hero-images-mobile .floating {
+                margin-bottom: 1rem;
+            }
+            
+            .hero-stats-mobile .stat-number {
+                font-size: 2rem;
+            }
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        .service-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%);
+            border-radius: 1.5rem;
+        }
+        
+        .country-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .country-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .country-card:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 py-4 px-4 md:px-6 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2 md:space-x-3">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-green-600 via-green-500 to-green-400 rounded-2xl flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-xl transform hover:scale-105 transition">
+                    GS
+                </div>
+                <div>
+                    <span class="text-xl md:text-2xl font-bold heading-font text-gray-800 block leading-tight">Green Study Consults</span>
+                    <span class="text-xs text-gray-600 hidden md:block">Your Gateway to Global Success</span>
+                </div>
+            </div>
+            <div class="hidden lg:flex space-x-8 items-center">
+                <a href="#services" class="text-gray-700 hover:text-green-600 font-semibold transition relative group">
+                    Services
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="text-gray-700 hover:text-green-600 font-semibold transition relative group">
+                    About
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#countries" class="text-gray-700 hover:text-green-600 font-semibold transition relative group">
+                    Countries
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#process" class="text-gray-700 hover:text-green-600 font-semibold transition relative group">
+                    Process
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="bg-gradient-to-r from-green-600 to-green-500 text-white px-8 py-3 rounded-full hover:from-green-700 hover:to-green-600 transition shadow-xl cta-button font-semibold relative">
+                    Get Started
+                </a>
+            </div>
+            <button id="mobileMenuBtn" class="lg:hidden text-gray-800 focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden mt-4 bg-white rounded-2xl shadow-2xl p-6">
+            <a href="#services" class="block py-3 text-gray-700 hover:text-green-600 font-semibold transition border-b">Services</a>
+            <a href="#about" class="block py-3 text-gray-700 hover:text-green-600 font-semibold transition border-b">About</a>
+            <a href="#countries" class="block py-3 text-gray-700 hover:text-green-600 font-semibold transition border-b">Countries</a>
+            <a href="#process" class="block py-3 text-gray-700 hover:text-green-600 font-semibold transition border-b">Process</a>
+            <a href="#contact" class="block py-3 text-green-600 hover:text-green-700 font-semibold transition">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-green-50/30 pt-24 md:pt-0">
+        <!-- Subtle background accent -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-green-100 rounded-full filter blur-3xl opacity-20"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-emerald-100 rounded-full filter blur-3xl opacity-15"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20 lg:py-28 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+                <!-- Left Column: Content -->
+                <div class="animate__animated animate__fadeInLeft text-center lg:text-left order-2 lg:order-1">
+                    <!-- Trust Badge -->
+                    <div class="inline-block mb-6 px-4 md:px-5 py-2 bg-green-600 text-white font-semibold text-xs md:text-sm rounded-full shadow-lg">
+                        <i class="fas fa-award mr-2"></i>500+ UK & Canada Visas Approved in 2024
+                    </div>
+                    
+                    <!-- Main Headline - DOMINANT -->
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold heading-font text-gray-900 mb-5 md:mb-6 leading-tight">
+                        Study Abroad Made
+                        <span class="gradient-text block">Simple & Successful</span>
+                    </h1>
+                    
+                    <!-- Subheadline -->
+                    <p class="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+                        Expert visa consultancy for students targeting UK, Canada, Portugal, Spain, Germany & Switzerland. 98% approval rate.
+                    </p>
+                    
+                    <!-- Primary CTA - High Contrast -->
+                    <div class="mb-10">
+                        <a href="#contact" class="inline-block bg-gradient-to-r from-green-600 to-green-700 text-white px-10 md:px-12 py-5 md:py-6 rounded-full font-bold text-lg md:text-xl hover:from-green-700 hover:to-green-800 transition shadow-2xl hover:shadow-green-600/50 transform hover:scale-105 cta-button relative">
+                            <span class="relative z-10 flex items-center justify-center">
+                                Get Free Consultation
+                                <i class="fas fa-arrow-right ml-3"></i>
+                            </span>
+                        </a>
+                    </div>
+                    
+                    <!-- Trust Signals - Specific -->
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center justify-center lg:justify-start space-x-3 text-gray-700">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                            </div>
+                            <div class="text-left">
+                                <div class="font-bold text-sm md:text-base">UK & Canada Student Visas</div>
+                                <div class="text-xs md:text-sm text-gray-600">98% approval rate • 500+ successful applications</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center lg:justify-start space-x-3 text-gray-700">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-star text-blue-600"></i>
+                            </div>
+                            <div class="text-left">
+                                <div class="font-bold text-sm md:text-base">4.9/5 on Google Reviews</div>
+                                <div class="text-xs md:text-sm text-gray-600">1,200+ verified student reviews</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Stats - Simplified -->
+                    <div class="grid grid-cols-3 gap-4 md:gap-6 bg-white rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold text-green-600 mb-1">500+</div>
+                            <div class="text-xs md:text-sm text-gray-600 font-semibold">Students</div>
+                        </div>
+                        <div class="text-center border-x border-gray-200">
+                            <div class="text-3xl md:text-4xl font-bold text-green-600 mb-1">98%</div>
+                            <div class="text-xs md:text-sm text-gray-600 font-semibold">Approval</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold text-green-600 mb-1">6</div>
+                            <div class="text-xs md:text-sm text-gray-600 font-semibold">Countries</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Hero Image - ONE PRIMARY VISUAL -->
+                <div class="relative animate__animated animate__fadeInRight mt-4 md:mt-8 lg:mt-0 order-1 lg:order-2">
+                    <!-- Main Hero Image - Clean, Single Focus -->
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl h-[400px] md:h-[500px] lg:h-[600px] hero-image-container bg-gradient-to-br from-green-500 via-emerald-500 to-teal-600">
+                        <!-- Background Image Layer -->
+                        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" id="heroImageBg" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=800&fit=crop&q=80'); opacity: 0;"></div>
+                        <!-- Image overlay for better text contrast -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none z-10"></div>
+                        <!-- Alt text for accessibility -->
+                        <span class="sr-only">Successful Students Studying Abroad</span>
+                    </div>
+                    
+                    <!-- Single Trust Badge - Bottom Right, Subtle -->
+                    <div class="hidden md:block absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-xl border-2 border-green-100 z-20 max-w-[200px]">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-check text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-900 text-sm">UK & Canada</div>
+                                <div class="text-xs text-gray-600">Visas Approved</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile: Simple Trust Badge -->
+                    <div class="md:hidden mt-4 bg-white p-4 rounded-2xl shadow-lg border border-gray-100">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-900">UK & Canada Student Visas</div>
+                                <div class="text-sm text-gray-600">98% approval rate • 500+ successful</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
+            <a href="#services" class="text-gray-400 hover:text-green-600 transition">
+                <i class="fas fa-chevron-down text-3xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 md:py-32 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-green-100 rounded-full filter blur-3xl opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+            <div class="text-center mb-16 md:mb-20" data-aos="fade-up">
+                <div class="inline-block mb-4 px-6 py-2 bg-green-100 rounded-full text-green-700 font-semibold text-sm">
+                    <i class="fas fa-briefcase mr-2"></i>What We Offer
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold heading-font text-gray-900 mb-6">Comprehensive Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">End-to-end support for your international education and travel journey</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <!-- Service 1 -->
+                <div class="relative bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 p-8 md:p-10 rounded-3xl shadow-xl card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-badge">Most Popular</div>
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-600 to-green-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg feature-icon">
+                        <i class="fas fa-graduation-cap text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Study Abroad Consulting</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">Expert guidance through university applications, course selection, and student visa processes. We help you find the perfect institution that matches your academic goals and budget.</p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">University selection & application strategy</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Statement of purpose & essay review</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Complete student visa support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Scholarship guidance & financial planning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Pre-departure orientation</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center text-green-600 font-bold hover:text-green-700 transition group">
+                        Learn More 
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="relative bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 p-8 md:p-10 rounded-3xl shadow-xl card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg feature-icon">
+                        <i class="fas fa-plane-departure text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Tourist Visa Services</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">Streamlined tourist visa applications for leisure travel, family visits, and exploration. We handle the complexity so you can focus on planning your trip.</p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Complete document preparation & verification</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Application form assistance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Real-time application tracking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Embassy interview preparation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Travel itinerary planning support</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-700 transition group">
+                        Learn More 
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="relative bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 p-8 md:p-10 rounded-3xl shadow-xl card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-purple-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg feature-icon">
+                        <i class="fas fa-file-alt text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Documentation Support</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">Comprehensive assistance with paperwork, document verification, and compliance. We ensure your application is flawless and meets all requirements.</p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Detailed document review & audit</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Compliance & regulation checking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Document translation services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Notarization & apostille guidance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Submission strategy & timing</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center text-purple-600 font-bold hover:text-purple-700 transition group">
+                        Learn More 
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-32 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 relative overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-green-200 rounded-full filter blur-3xl opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+                <div data-aos="fade-right" class="order-2 lg:order-1 relative">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="Consultation" class="rounded-3xl shadow-2xl">
+                    <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-2xl max-w-xs">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-users text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-2xl text-gray-900">500+</div>
+                                <div class="text-sm text-gray-600">Students Guided</div>
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-500">Trusted by students across 6 countries</div>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="order-1 lg:order-2">
+                    <div class="inline-block mb-4 px-6 py-2 bg-white rounded-full text-green-700 font-semibold text-sm shadow-md">
+                        <i class="fas fa-lightbulb mr-2"></i>About Us
+                    </div>
+                    <h2 class="text-4xl md:text-6xl font-bold heading-font text-gray-900 mb-6">Why Choose Green Study Consults?</h2>
+                    <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-6">
+                        At Green Study Consults, we understand that applying for a study program or a tourist visa can be overwhelming. Regulations change, paperwork is intricate, and the stakes are high.
+                    </p>
+                    <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
+                        That's where we come in. We are more than just consultants; we are your strategic partners. By combining up-to-date expertise with personalized attention, we demystify the process. We build tailored application strategies, prepare flawless documentation, and provide clear communication at every step.
+                    </p>
+                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-xl mb-8 border-l-4 border-green-600">
+                        <i class="fas fa-quote-left text-green-600 text-2xl mb-4"></i>
+                        <p class="text-xl md:text-2xl font-semibold text-gray-900 italic mb-4">
+                            "Our mission is simple: to empower you to cross borders for education and exploration with the highest chance of success and the least amount of stress."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                                GS
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-900">Green Study Consults</div>
+                                <div class="text-sm text-gray-600">Study Abroad Consultancy</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
+                            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                                <i class="fas fa-user-check text-green-600 text-xl"></i>
+                            </div>
+                            <div class="text-3xl font-bold text-green-600 mb-2">Personalized</div>
+                            <div class="text-gray-600">Tailored strategies for each client's unique goals</div>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                                <i class="fas fa-certificate text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="text-3xl font-bold text-blue-600 mb-2">Expert</div>
+                            <div class="text-gray-600">Up-to-date regulatory knowledge</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countries Section -->
+    <section id="countries" class="py-20 md:py-32 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-16 md:mb-20" data-aos="fade-up">
+                <div class="inline-block mb-4 px-6 py-2 bg-green-100 rounded-full text-green-700 font-semibold text-sm">
+                    <i class="fas fa-globe-americas mr-2"></i>Global Reach
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold heading-font text-gray-900 mb-6">Countries We Serve</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Supporting your journey to top destinations worldwide with expert knowledge of each country's unique requirements</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
+                <div class="country-card bg-gradient-to-br from-red-50 to-blue-50 p-8 rounded-3xl shadow-lg card-hover text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="country-flag mb-4">🇬🇧</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">United Kingdom</h3>
+                    <p class="text-sm text-gray-600">Top universities & rich culture</p>
+                </div>
+                <div class="country-card bg-gradient-to-br from-red-50 to-white p-8 rounded-3xl shadow-lg card-hover text-center" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="country-flag mb-4">🇨🇦</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Canada</h3>
+                    <p class="text-sm text-gray-600">Immigration-friendly policies</p>
+                </div>
+                <div class="country-card bg-gradient-to-br from-green-50 to-red-50 p-8 rounded-3xl shadow-lg card-hover text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="country-flag mb-4">🇵🇹</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Portugal</h3>
+                    <p class="text-sm text-gray-600">Affordable European education</p>
+                </div>
+                <div class="country-card bg-gradient-to-br from-red-50 to-yellow-50 p-8 rounded-3xl shadow-lg card-hover text-center" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="country-flag mb-4">🇪🇸</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Spain</h3>
+                    <p class="text-sm text-gray-600">Vibrant lifestyle & quality education</p>
+                </div>
+                <div class="country-card bg-gradient-to-br from-gray-800 to-red-600 p-8 rounded-3xl shadow-lg card-hover text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="country-flag mb-4">🇩🇪</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Germany</h3>
+                    <p class="text-sm text-gray-600">Tuition-free public universities</p>
+                </div>
+                <div class="country-card bg-gradient-to-br from-red-50 to-white p-8 rounded-3xl shadow-lg card-hover text-center" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="country-flag mb-4">🇨🇭</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Switzerland</h3>
+                    <p class="text-sm text-gray-600">World-class education system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-16 md:mb-20" data-aos="fade-up">
+                <div class="inline-block mb-4 px-6 py-2 bg-green-100 rounded-full text-green-700 font-semibold text-sm">
+                    <i class="fas fa-tasks mr-2"></i>Our Process
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold heading-font text-gray-900 mb-6">How We Work</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">A simple, streamlined 5-step process to make your international dreams a reality</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition relative">
+                        <div class="absolute -top-4 left-8 w-12 h-12 bg-gradient-to-br from-green-600 to-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                            1
+                        </div>
+                        <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 mt-4">
+                            <i class="fas fa-comments text-green-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Initial Consultation</h3>
+                        <p class="text-gray-600">We assess your goals, academic background, and budget to create a personalized plan.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition relative">
+                        <div class="absolute -top-4 left-8 w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                            2
+                        </div>
+                        <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 mt-4">
+                            <i class="fas fa-university text-blue-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Institution Selection</h3>
+                        <p class="text-gray-600">We identify the best-fit universities and programs that align with your aspirations.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition relative">
+                        <div class="absolute -top-4 left-8 w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                            3
+                        </div>
+                        <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 mt-4">
+                            <i class="fas fa-file-signature text-purple-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Application Prep</h3>
+                        <p class="text-gray-600">We prepare flawless applications with compelling essays and complete documentation.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition relative">
+                        <div class="absolute -top-4 left-8 w-12 h-12 bg-gradient-to-br from-orange-600 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                            4
+                        </div>
+                        <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 mt-4">
+                            <i class="fas fa-passport text-orange-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Visa Processing</h3>
+                        <p class="text-gray-600">We handle all visa requirements and prepare you for interviews with confidence.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step" data-aos="fade-up" data-aos-delay="500">
+                    <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition relative">
+                        <div class="absolute -top-4 left-8 w-12 h-12 bg-gradient-to-br from-pink-600 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                            5
+                        </div>
+                        <div class="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mb-6 mt-4">
+                            <i class="fas fa-plane text-pink-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Pre-Departure</h3>
+                        <p class="text-gray-600">We provide orientation and support to ensure you're ready for your journey abroad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="py-20 md:py-32 bg-white relative overflow-hidden">
+        <div class="absolute top-1/2 right-0 w-96 h-96 bg-blue-100 rounded-full filter blur-3xl opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+            <div class="text-center mb-16 md:mb-20" data-aos="fade-up">
+                <div class="inline-block mb-4 px-6 py-2 bg-blue-100 rounded-full text-blue-700 font-semibold text-sm">
+                    <i class="fas fa-users mr-2"></i>Who We Help
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold heading-font text-gray-900 mb-6">Our Clients</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Serving diverse individuals at every stage of their international journey</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 md:p-10 rounded-3xl shadow-xl text-center card-hover" data-aos="flip-left" data-aos-delay="100">
+                    <div class="w-24 h-24 bg-gradient-to-br from-green-600 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-user-graduate text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Students</h3>
+                    <p class="text-gray-600 mb-4">Undergraduates and postgraduates pursuing international education</p>
+                    <div class="flex items-center justify-center space-x-1 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 md:p-10 rounded-3xl shadow-xl text-center card-hover" data-aos="flip-left" data-aos-delay="200">
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-600 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-home text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Parents</h3>
+                    <p class="text-gray-600 mb-4">Supporting their children's educational aspirations abroad</p>
+                    <div class="flex items-center justify-center space-x-1 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 md:p-10 rounded-3xl shadow-xl text-center card-hover" data-aos="flip-left" data-aos-delay="300">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-600 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-briefcase text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Professionals</h3>
+                    <p class="text-gray-600 mb-4">Advancing careers through international education</p>
+                    <div class="flex items-center justify-center space-x-1 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-50 to-yellow-50 p-8 md:p-10 rounded-3xl shadow-xl text-center card-hover" data-aos="flip-left" data-aos-delay="400">
+                    <div class="w-24 h-24 bg-gradient-to-br from-orange-600 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <i class="fas fa-globe-asia text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Travelers</h3>
+                    <p class="text-gray-600 mb-4">Exploring the world with tourist visa assistance</p>
+                    <div class="flex items-center justify-center space-x-1 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 md:py-32 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-16 md:mb-20" data-aos="fade-up">
+                <div class="inline-block mb-4 px-6 py-2 bg-white rounded-full text-green-700 font-semibold text-sm shadow-md">
+                    <i class="fas fa-star mr-2"></i>Testimonials
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold heading-font text-gray-900 mb-6">Success Stories</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Hear from students who achieved their dreams with our guidance</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card p-8 rounded-3xl shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center space-x-1 text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic leading-relaxed">"Green Study Consults made my dream of studying in the UK a reality. Their attention to detail and personalized approach was exceptional. I'm now at my dream university!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            AO
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-900">Adaeze Okonkwo</div>
+                            <div class="text-sm text-gray-600">Master's Student, UK</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-3xl shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center space-x-1 text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic leading-relaxed">"The team handled everything from university selection to visa approval. Their expertise and constant support made the entire process stress-free. Highly recommend!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            CN
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-900">Chinedu Nwosu</div>
+                            <div class="text-sm text-gray-600">Undergraduate, Canada</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-3xl shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center space-x-1 text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic leading-relaxed">"Professional, knowledgeable, and caring. They went above and beyond to ensure my application was perfect. Got accepted to all my top choices!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            FE
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-900">Folake Eze</div>
+                            <div class="text-sm text-gray-600">PhD Candidate, Germany</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 md:py-32 bg-gradient-to-r from-green-600 via-green-500 to-emerald-500 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full filter blur-3xl"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 md:px-6 text-center relative z-10" data-aos="zoom-in">
+            <h2 class="text-4xl md:text-6xl font-bold heading-font text-white mb-6">Ready to Start Your Journey?</h2>
+            <p class="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto">Join hundreds of successful students who trusted us with their international education dreams</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="bg-white text-green-600 px-10 py-5 rounded-full font-bold hover:bg-gray-100 transition shadow-2xl transform hover:scale-105 text-lg inline-flex items-center justify-center">
+                    <i class="fas fa-paper-plane mr-2"></i>
+                    Get Free Consultation
+                </a>
+                <a href="https://wa.me/2347048626006" target="_blank" class="bg-green-800 text-white px-10 py-5 rounded-full font-bold hover:bg-green-900 transition shadow-2xl transform hover:scale-105 text-lg inline-flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-20 md:py-32 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-green-100 rounded-full filter blur-3xl opacity-30"></div>
+        <div class="max-w-5xl mx-auto px-4 md:px-6 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="inline-block mb-4 px-6 py-2 bg-green-100 rounded-full text-green-700 font-semibold text-sm">
+                    <i class="fas fa-envelope mr-2"></i>Get In Touch
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold heading-font text-gray-900 mb-6">Start Your Journey Today</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Fill out the form below and let's make your international dreams a reality. We'll respond within 24 hours.</p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 p-8 md:p-12 rounded-3xl shadow-2xl" data-aos="zoom-in">
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                                <i class="fas fa-user mr-2 text-green-600"></i>
+                                Full Name *
+                            </label>
+                            <input type="text" id="fullName" required class="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-green-500 transition bg-white shadow-sm" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                                <i class="fas fa-envelope mr-2 text-green-600"></i>
+                                Email Address *
+                            </label>
+                            <input type="email" id="email" required class="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-green-500 transition bg-white shadow-sm" placeholder="john@example.com">
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                                <i class="fab fa-whatsapp mr-2 text-green-600"></i>
+                                WhatsApp Number
+                            </label>
+                            <input type="tel" id="whatsapp" class="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-green-500 transition bg-white shadow-sm" placeholder="+234 XXX XXX XXXX">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                                <i class="fas fa-briefcase mr-2 text-green-600"></i>
+                                Service Interested In *
+                            </label>
+                            <select id="service" class="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-green-500 transition bg-white shadow-sm">
+                                <option>Study Abroad Consulting</option>
+                                <option>Tourist Visa Services</option>
+                                <option>Documentation Support</option>
+                                <option>General Inquiry</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                            <i class="fas fa-globe mr-2 text-green-600"></i>
+                            Preferred Country
+                        </label>
+                        <select id="country" class="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-green-500 transition bg-white shadow-sm">
+                            <option>Select a country</option>
+                            <option>🇬🇧 United Kingdom</option>
+                            <option>🇨🇦 Canada</option>
+                            <option>🇵🇹 Portugal</option>
+                            <option>🇪🇸 Spain</option>
+                            <option>🇩🇪 Germany</option>
+                            <option>🇨🇭 Switzerland</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                            <i class="fas fa-comment-dots mr-2 text-green-600"></i>
+                            Tell Us About Your Goals *
+                        </label>
+                        <textarea id="message" required rows="6" class="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-green-500 transition bg-white shadow-sm" placeholder="Share your educational goals, budget, timeline, and any questions you have..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-green-500 text-white py-5 rounded-2xl font-bold text-lg hover:from-green-700 hover:to-green-600 transition shadow-2xl hover:shadow-green-500/50 transform hover:scale-105 cta-button flex items-center justify-center">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Send Message
+                    </button>
+                    
+                    <p class="text-center text-gray-600 text-sm">
+                        <i class="fas fa-lock mr-1"></i>
+                        Your information is secure and will never be shared
+                    </p>
+                </form>
+            </div>
+            
+            <!-- Contact Info Cards -->
+            <div class="grid md:grid-cols-3 gap-6 mt-12">
+                <div class="bg-white p-6 rounded-2xl shadow-lg text-center hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Email Us</h3>
+                    <a href="mailto:greenstudyconsults@gmail.com" class="text-green-600 hover:text-green-700 text-sm break-all">greenstudyconsults@gmail.com</a>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg text-center hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Call Us</h3>
+                    <a href="tel:+2347048626006" class="text-blue-600 hover:text-blue-700 text-sm">0704 862 6006</a>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg text-center hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-whatsapp text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">WhatsApp</h3>
+                    <a href="https://wa.me/2347048626006" target="_blank" class="text-green-600 hover:text-green-700 text-sm">Chat with us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 md:py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-green-500 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-green-600 via-green-500 to-green-400 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-xl">
+                            GS
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold heading-font block">Green Study Consults</span>
+                            <span class="text-sm text-gray-400">Your Gateway to Global Success</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6 max-w-md">
+                        Your trusted partner in international education and travel visa consulting. We empower students and travelers to achieve their dreams with expert guidance and personalized support.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/2347048626006" target="_blank" class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-700 transition transform hover:scale-110 shadow-lg">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="#" target="_blank" class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition transform hover:scale-110 shadow-lg">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" target="_blank" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition transform hover:scale-110 shadow-lg">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" target="_blank" class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition transform hover:scale-110 shadow-lg">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-link mr-2 text-green-500"></i>
+                        Quick Links
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-green-400 transition flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>Our Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-green-400 transition flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>About Us</a></li>
+                        <li><a href="#countries" class="text-gray-400 hover:text-green-400 transition flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>Countries</a></li>
+                        <li><a href="#process" class="text-gray-400 hover:text-green-400 transition flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>Our Process</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-green-400 transition flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-address-book mr-2 text-green-500"></i>
+                        Contact
+                    </h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-green-500"></i>
+                            <a href="mailto:greenstudyconsults@gmail.com" class="hover:text-green-400 transition break-all">greenstudyconsults@gmail.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3 text-green-500"></i>
+                            <a href="tel:+2347048626006" class="hover:text-green-400 transition">0704 862 6006</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-green-500"></i>
+                            <span>Lagos, Nigeria</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="text-gray-400 text-sm text-center md:text-left">
+                        <p>&copy; 2026 Green Study Consults. All rights reserved.</p>
+                        <p class="text-xs mt-1">Empowering international journeys, one success story at a time.</p>
+                    </div>
+                    <div class="flex items-center space-x-6 text-sm text-gray-400">
+                        <a href="#" class="hover:text-green-400 transition">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#" class="hover:text-green-400 transition">Terms of Service</a>
+                        <span>•</span>
+                        <a href="#" class="hover:text-green-400 transition">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-green-600 to-green-500 text-white rounded-full shadow-2xl hover:from-green-700 hover:to-green-600 transition transform hover:scale-110 z-40 hidden items-center justify-center">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2347048626006" target="_blank" class="fixed bottom-8 left-8 w-16 h-16 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-600 transition transform hover:scale-110 z-40 flex items-center justify-center animate-pulse">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS with performance optimizations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            disable: window.innerWidth < 768 ? false : false,
+            useClassNames: false,
+            disableMutationObserver: false
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect - optimized for smooth scrolling
+        let scrollTicking = false;
+        const navbar = document.getElementById('navbar');
+        const scrollTop = document.getElementById('scrollTop');
+        
+        function updateNavbar() {
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+            
+            // Show/hide scroll to top button
+            if (scrollY > 300) {
+                scrollTop.classList.remove('hidden');
+                scrollTop.classList.add('flex');
+            } else {
+                scrollTop.classList.add('hidden');
+                scrollTop.classList.remove('flex');
+            }
+            
+            scrollTicking = false;
+        }
+        
+        window.addEventListener('scroll', function() {
+            if (!scrollTicking) {
+                window.requestAnimationFrame(updateNavbar);
+                scrollTicking = true;
+            }
+        }, { passive: true });
+
+        // Scroll to top functionality
+        document.getElementById('scrollTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler - mailto with prefilled information
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const service = document.getElementById('service').value;
+            const country = document.getElementById('country').value;
+            const message = document.getElementById('message').value;
+            
+            // Build email subject
+            const subject = encodeURIComponent(`Inquiry: ${service} - ${fullName}`);
+            
+            // Build email body
+            let body = `Hello Green Study Consults,\n\n`;
+            body += `I am interested in your services. Please find my details below:\n\n`;
+            body += `Full Name: ${fullName}\n`;
+            body += `Email: ${email}\n`;
+            if (whatsapp) {
+                body += `WhatsApp: ${whatsapp}\n`;
+            }
+            body += `Service Interested In: ${service}\n`;
+            if (country && country !== 'Select a country') {
+                body += `Preferred Country: ${country}\n`;
+            }
+            body += `\nMessage:\n${message}\n\n`;
+            body += `Thank you for your time.\n\nBest regards,\n${fullName}`;
+            
+            body = encodeURIComponent(body);
+            
+            // Create mailto link
+            const mailtoLink = `mailto:greenstudyconsults@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+        });
+
+        // Ensure hero image loads and is visible
+        (function() {
+            const heroImageBg = document.getElementById('heroImageBg');
+            
+            if (heroImageBg) {
+                // Test if image loads
+                const testImg = new Image();
+                
+                testImg.onload = function() {
+                    // Image loaded - show it
+                    heroImageBg.style.opacity = '1';
+                    heroImageBg.style.transition = 'opacity 0.5s ease';
+                };
+                
+                testImg.onerror = function() {
+                    // Image failed - try alternative
+                    const altImg = new Image();
+                    altImg.onload = function() {
+                        heroImageBg.style.backgroundImage = "url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=800&fit=crop&q=80')";
+                        heroImageBg.style.opacity = '1';
+                        heroImageBg.style.transition = 'opacity 0.5s ease';
+                    };
+                    altImg.onerror = function() {
+                        // Both failed - keep gradient background (already set on container)
+                        console.log('Images failed to load, showing gradient fallback');
+                    };
+                    altImg.src = 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=800&fit=crop&q=80';
+                };
+                
+                // Start loading
+                testImg.src = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=800&fit=crop&q=80';
+            }
+        })();
+        
+        // Optimize scroll performance - parallax removed for smooth scrolling
+
+        // Counter animation for stats
+        function animateCounter(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Intersection Observer for counter animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach((stat) => {
+                        const text = stat.textContent;
+                        const number = parseInt(text.match(/\d+/)[0]);
+                        stat.textContent = '0';
+                        animateCounter(stat, 0, number, 2000);
+                        setTimeout(() => {
+                            stat.innerHTML = text;
+                        }, 2000);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe stats section
+        const statsSection = document.querySelector('.stat-number');
+        if (statsSection) {
+            observer.observe(statsSection.closest('div'));
+        }
+    </script>
+</body>
+</html>
